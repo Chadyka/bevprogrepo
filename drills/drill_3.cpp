@@ -51,5 +51,5 @@ int main()
         cout << " I hope you are enjoying retirement.\n";
     }
 
-    cout << "\nYours sincerely, _______ _______ Jakab Adam\n";
+    cout << "\nYours sincerely,\n\n\nJakab Adam\n";
 }
