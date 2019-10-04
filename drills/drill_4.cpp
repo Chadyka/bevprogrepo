@@ -111,7 +111,7 @@ int main()
     }
     //10.-11.
     std::cout << "All entered values in order: ";
-    sort(values.begin(), values.end());
+    sort(values);
 
     std::cout << values[0];
 
