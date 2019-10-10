@@ -1,29 +1,30 @@
-#include "std_lib_facilities.h"
+#include <stdio.h>
+#include <math.h>
 
-void kiir(double tomb[], int db)
+void kiir(double arr[], int db)
 {
     for (int i = 0; i < db; i++)
     {
-        std::cout << tomb[i] << " " << endl;
+        printf("%lf\n", arr[i]);
     }
 }
 
 double tavolsag(double PR[], double PRv[], int n)
 {
-    int osszeg = 0;
+    double sum = 0.0;
     for (int i = 0; i < n; ++i)
     {
-        osszeg += (PRv[i] - PR[i]) * (PRv[i] - PR[i]);
+        sum += (PRv[i] - PR[i]) * (PRv[i] - PR[i]);
     }
 
-    return sqrt(osszeg);
+    return sqrt(sum);
 }
 
 int main()
 {
     double L[4][4] = {
         {0.0, 0.0, 1.0 / 3.0, 0.0},
-        {1.0, 1.0 / 2.0, 0.0, 0.0},
+        {1.0, 1.0 / 2.0, 1.0 / 3.0, 1.0},
         {0.0, 1.0 / 2.0, 0.0, 0.0},
         {0.0, 0.0, 1.0 / 3.0, 0.0}};
 
@@ -44,7 +45,7 @@ int main()
             }
         }
 
-        if (tavolsag(PR, PRv, 4) < 0.0000000001)
+        if (tavolsag(PR, PRv, 4) < 0.00001)
         {
             break;
         }
