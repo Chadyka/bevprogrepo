@@ -15,6 +15,7 @@ struct Token {
 	string name;
 	Token(char ch) :kind(ch), value(0) { }
 	Token(char ch, double val) :kind(ch), value(val) { }
+	Token(char ch, string n)   : kind(ch), name(n)    {} // added constructor with parameters (char ,string)
 };
 
 class Token_stream {
@@ -71,10 +72,10 @@ Token Token_stream::get() //
 		if (isalpha(ch)) {
 			string s;
 			s += ch;
-			while(cin.get(ch) && (isalpha(ch) || isdigit(ch))) s=ch;
+			while(cin.get(ch) && (isalpha(ch) || isdigit(ch))) s+=ch; // replaced = with += as a degub step
 			cin.unget();
 			if (s == "let") return Token(let);	
-			if (s == "quit") return Token(name);
+			if (s == "quit") return Token(quit); // used to be Token(name) incorrectly
 			return Token(name,s);
 		}
 		error("Bad token");
@@ -138,6 +139,7 @@ double primary()
 	{	double d = expression();
 		t = ts.get();
 		if (t.kind != ')') error("'(' expected");
+		return d;
 	}
 	case '-':
 		return - primary();
