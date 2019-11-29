@@ -1,0 +1,11 @@
+LZWBinfa fill(const & std::fstream in) {
+    LZWBinfa binfa;
+    .
+    .
+    .
+    return binfa;
+}
+
+//hívás helyén
+LZWBinfa fa = fill(beFile);
+*fa ...;
