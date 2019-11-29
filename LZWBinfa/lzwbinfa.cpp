@@ -218,6 +218,7 @@ private:
        gyermekre mutató mutatót pedig nullra állítjuk, C++-ban a 0 is megteszi. */
         Csomopont (char b = '/'):betu (b), balNulla (0), jobbEgy (0)
         {
+            
         };
         ~Csomopont ()
         {
